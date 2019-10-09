@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NUnit.Framework;
+using WeatherAPI.WeatherApi.Data_Handling;
 
 namespace WeatherAPI.WeatherApi.HTTP_Management
 {
@@ -11,17 +12,17 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
     [TestFixture]
     public class WeatherApiTest
     {
-        WeatherApiCall apiCall = new WeatherApiCall();
+        WeatherApiService WAS = new WeatherApiService();
         public WeatherApiTest()
         {
-            apiCall.WeatherApiRequest("London");
+            
         }
 
 
         [Test]
         public void WeatherApiStatusCheck()
         {
-            Assert.AreEqual("200", apiCall.WeatherApiResponse["cod"].ToString());
+            Assert.AreEqual("200", WAS.weatherApiDto.weatherApiModel.Cod);
         }
     }
 }

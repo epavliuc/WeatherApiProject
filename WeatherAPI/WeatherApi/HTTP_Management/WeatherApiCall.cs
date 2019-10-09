@@ -12,9 +12,8 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
     public class WeatherApiCall
     {
 
-        public JObject WeatherApiResponse { get; set; }
         public IRestClient Client { get; set; }
-        public IRestResponse Response { get; set; }
+        public IRestResponse Response { get; set; }       
 
         public static class ApiConfig
         {
@@ -23,13 +22,11 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
             public static string ApiKey = ConfigurationManager.AppSettings["ApiKey"];
             //public static string ApiMod = ConfigurationManager.AppSettings["ApiMod"];
         }
-        public void WeatherApiRequest(string city)
+        public void WeatherApiRequest()
         {
             var request = new RestRequest();
-            Client = new RestClient(ApiConfig.ApiUrl+city+"&APPID="+ApiConfig.ApiKey);
-            request.AddHeader("Content-Type", "application/json; charset=utf-8");
+            Client = new RestClient(ApiConfig.ApiUrl+"London"+"&APPID="+ApiConfig.ApiKey);
             Response = Client.Execute(request);
-            WeatherApiResponse = JObject.Parse(Response.Content);
         }
     }
 }

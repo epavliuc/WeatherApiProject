@@ -13,8 +13,6 @@ namespace WeatherAPI.WeatherApi.Data_Handling
         public Main Main { get; set; }
         public Wind Wind { get; set; }
         public Clouds Clouds { get; set; }
-        public Rain rain { get; set; }
-        public Snow snow { get; set; }
         public Sys Sys { get; set; }
         public string Base { get; set; }
         public int DT { get; set; }
@@ -43,25 +41,29 @@ namespace WeatherAPI.WeatherApi.Data_Handling
 
     public class Weather
     {
-
+        public int Id { get; set; }
+        public string Main { get; set; }
+        public string Description { get; set; }
+        public string Icon { get; set; }
     }
     public class Sys
     {
-    }
-
-    public class Snow
-    {
-    }
-
-    public class Rain
-    {
+        public int Type { get; set; }
+        public int Id { get; set; }
+        public double Message { get; set; }
+        public string Country { get; set; }
+        public int Sunrise { get; set; }
+        public int Sunset { get; set; }
     }
 
     public class Clouds
     {
+        public int All { get; set; }
     }
 
     public class Wind
     {
+        public double Speed { get; set; }
+        public int Deg { get; set; }
     }
 }
