@@ -10,22 +10,14 @@ using System.Configuration;
 namespace WeatherAPI.WeatherApi.HTTP_Management
 {
     public class WeatherApiCall
-    {
-
+    { 
         public IRestClient Client { get; set; }
         public IRestResponse Response { get; set; }       
 
-        public static class ApiConfig
-        {
-            //settup limits to searching by city only
-            public static string ApiUrl = ConfigurationManager.AppSettings["BaseApiUrl"];
-            public static string ApiKey = ConfigurationManager.AppSettings["ApiKey"];
-            //public static string ApiMod = ConfigurationManager.AppSettings["ApiMod"];
-        }
         public string WeatherApiRequest()
         {
             var request = new RestRequest();
-            Client = new RestClient(ApiConfig.ApiUrl+"London"+"&APPID="+ApiConfig.ApiKey);
+            Client = new RestClient(ApiConfig.ApiUrl+ApiConfig.ApiUrlMod+ApiConfig.Location+ApiConfig.ApiKeyMod+ApiConfig.ApiKey);
             Response = Client.Execute(request);
 
             return Response.Content;

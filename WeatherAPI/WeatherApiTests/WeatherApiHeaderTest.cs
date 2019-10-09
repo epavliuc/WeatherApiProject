@@ -47,6 +47,14 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
             //if needed methods are available
             Assert.AreEqual("Access-Control-Allow-Methods=GET, POST", WAS.weatherResponse.Headers[4].ToString());
         }
+
+        [Test]
+        public void ApiHandlerCacheKeyCheck()
+        {
+            //if cache key is correct
+            Assert.AreEqual("X-Cache-Key=/data/2.5/weather?APPID=9454423d7ece5f6fac65100266220007&q=london", WAS.weatherResponse.Headers[1].ToString());
+        }
+
     }
 
 

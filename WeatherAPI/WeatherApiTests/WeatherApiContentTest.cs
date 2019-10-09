@@ -71,7 +71,7 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
         {
             //if humidity is between normal values
             Assert.Greater(WAS.weatherApiDto.weatherApiModel.Main.Humidity, 50);
-            Assert.Less(WAS.weatherApiDto.weatherApiModel.Main.Humidity, 85);
+            Assert.Less(WAS.weatherApiDto.weatherApiModel.Main.Humidity, 95);
         }
 
         [Test]
@@ -123,6 +123,15 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
             Assert.Less(WAS.weatherApiDto.weatherApiModel.Main.Temp, WAS.weatherApiDto.weatherApiModel.Main.Temp_max);
             Assert.Greater(WAS.weatherApiDto.weatherApiModel.Main.Temp, WAS.weatherApiDto.weatherApiModel.Main.Temp_min);
         }
+        
+        [Test]
+        public void ApiDescriptionNotNull()
+        {
+            //if description is not null
+            Assert.NotNull(WAS.weatherApiDto.weatherApiModel.Weather[0].Description);
+        }
+
+
 
 
     }
