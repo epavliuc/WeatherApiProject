@@ -59,6 +59,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="WeatherApiTests\WeatherApiTest.cs" />
+    <Compile Include="WeatherApi\Data_Handling\WeatherApiDTO.cs" />
+    <Compile Include="WeatherApi\Data_Handling\WeatherApiModel.cs" />
     <Compile Include="WeatherApi\HTTP_Management\WeatherApiCall.cs" />
     <Compile Include="WeatherApi\WeatherApiMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,9 +69,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="WeatherApi\Data_Handling\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
