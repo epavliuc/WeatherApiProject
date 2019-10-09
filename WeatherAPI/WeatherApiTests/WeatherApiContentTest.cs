@@ -95,6 +95,34 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
             Assert.AreEqual(3600, WAS.weatherApiDto.weatherApiModel.TimeZone);
         }
 
+        [Test]
+        public void ApiVisibilityOver1000Meters()
+        {
+            //if visibility is over 1000 meters
+            Assert.Greater(WAS.weatherApiDto.weatherApiModel.Visibility,1000);
+        }
+
+        [Test]
+        public void ApiCountryCheck()
+        {
+            //if in the right timezone
+            Assert.AreEqual("GB", WAS.weatherApiDto.weatherApiModel.Sys.Country);
+        }
+
+        [Test]
+        public void ApiRainingCheck()
+        {
+            //if its raining
+            Assert.AreEqual("Rain", WAS.weatherApiDto.weatherApiModel.Weather[0].Main);
+        }
+
+        [Test]
+        public void ApiTempBetweenMinMaxCheck()
+        {
+            //if current temp is between min and max temps
+            Assert.Less(WAS.weatherApiDto.weatherApiModel.Main.Temp, WAS.weatherApiDto.weatherApiModel.Main.Temp_max);
+            Assert.Greater(WAS.weatherApiDto.weatherApiModel.Main.Temp, WAS.weatherApiDto.weatherApiModel.Main.Temp_min);
+        }
 
 
     }

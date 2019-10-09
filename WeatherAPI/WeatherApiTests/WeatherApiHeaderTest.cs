@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using NUnit.Framework;
 using WeatherAPI.WeatherApi.HTTP_Management;
 
-namespace WeatherAPI.WeatherApiTests
+namespace WeatherAPI.WeatherApi.HTTP_Management
 {
     [TestFixture]
-    class WeatherApiHandlerTest
+    class WeatherApiHeaderTest
     {
         WeatherApiService WAS = new WeatherApiService();
 
