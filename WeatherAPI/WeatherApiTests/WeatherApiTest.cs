@@ -33,6 +33,13 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
             Assert.AreEqual(-0.13, WAS.weatherApiDto.weatherApiModel.Coord.Lon);
             Assert.AreEqual(51.51, WAS.weatherApiDto.weatherApiModel.Coord.Lat);
         }
+        
+        [Test]
+        public void ApiTempNotNull()
+        {
+            //if there is a temp value
+            Assert.NotNull(WAS.weatherApiDto.weatherApiModel.Main.Temp);
+        }
 
         [Test]
         public void ApiTempNotFreezingCheck()
@@ -46,6 +53,29 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
         {
             //if requested data is for city London
             Assert.AreEqual("London", WAS.weatherApiDto.weatherApiModel.Name);
+        }
+
+        [Test]
+        public void ApiLocationIDCheck()
+        {
+            //if requested data is for city London
+            Assert.AreEqual(2643743, WAS.weatherApiDto.weatherApiModel.ID);
+        }
+
+        [Test]
+        public void ApiAtmosphereNormalCheck()
+        {
+            //if atmosphere is between normal values
+            Assert.Greater(WAS.weatherApiDto.weatherApiModel.Main.Pressure, 1000);
+            Assert.Less(WAS.weatherApiDto.weatherApiModel.Main.Pressure, 1030);
+        }
+
+        [Test]
+        public void ApiHumidityNormalCheck()
+        {
+            //if humidity is between normal values
+            Assert.Greater(WAS.weatherApiDto.weatherApiModel.Main.Humidity, 50);
+            Assert.Less(WAS.weatherApiDto.weatherApiModel.Main.Humidity, 85);
         }
 
     }

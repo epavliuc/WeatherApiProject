@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WeatherApiTests\WeatherApiHandlerTest.cs" />
     <Compile Include="WeatherApiTests\WeatherApiTest.cs" />
     <Compile Include="WeatherApi\Data_Handling\WeatherApiDTO.cs" />
     <Compile Include="WeatherApi\Data_Handling\WeatherApiModel.cs" />
