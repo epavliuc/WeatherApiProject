@@ -21,13 +21,15 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
             //settup limits to searching by city only
             public static string ApiUrl = ConfigurationManager.AppSettings["BaseApiUrl"];
             public static string ApiKey = ConfigurationManager.AppSettings["ApiKey"];
-            public static string ApiMod = ConfigurationManager.AppSettings["ApiMod"];
+            //public static string ApiMod = ConfigurationManager.AppSettings["ApiMod"];
         }
         public void WeatherApiRequest(string city)
         {
             var request = new RestRequest();
-            Client = new RestClient(ApiConfig.ApiUrl + city + ApiConfig.ApiMod + ApiConfig.ApiKey);
-            Response = Client.Execute(request, Method.GET);
+            Client = new RestClient(ApiConfig.ApiUrl+city+"&APPID="+ApiConfig.ApiKey);
+            request.AddHeader("Content-Type", "application/json; charset=utf-8");
+            Response = Client.Execute(request);
+            WeatherApiResponse = JObject.Parse(Response.Content);
         }
     }
 }
