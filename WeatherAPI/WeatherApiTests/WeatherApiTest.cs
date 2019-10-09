@@ -18,11 +18,18 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
             
         }
 
-
         [Test]
         public void WeatherApiStatusCheck()
         {
-            Assert.AreEqual("200", WAS.weatherApiDto.weatherApiModel.Cod);
+            Assert.AreEqual(200, WAS.weatherApiDto.weatherApiModel.Cod);
+            Assert.AreEqual("OK", WAS.weatherResponse.StatusCode.ToString());
+        }
+
+        [Test]
+        public void WeatherApiPositionCheck()
+        {
+            Assert.AreEqual(-0.13, WAS.weatherApiDto.weatherApiModel.Coord.Lon);
+            Assert.AreEqual(51.51, WAS.weatherApiDto.weatherApiModel.Coord.Lat);
         }
     }
 }

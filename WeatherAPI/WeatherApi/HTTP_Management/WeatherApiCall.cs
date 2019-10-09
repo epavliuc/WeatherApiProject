@@ -22,11 +22,13 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
             public static string ApiKey = ConfigurationManager.AppSettings["ApiKey"];
             //public static string ApiMod = ConfigurationManager.AppSettings["ApiMod"];
         }
-        public void WeatherApiRequest()
+        public string WeatherApiRequest()
         {
             var request = new RestRequest();
             Client = new RestClient(ApiConfig.ApiUrl+"London"+"&APPID="+ApiConfig.ApiKey);
             Response = Client.Execute(request);
+
+            return Response.Content;
         }
     }
 }

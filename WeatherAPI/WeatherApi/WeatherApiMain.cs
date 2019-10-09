@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,11 +30,14 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
         public WeatherApiCall weatherApiCall = new WeatherApiCall();
         //Need JObject
         public JObject WeatherApiJObject;
+        //Need IRestResponse
+        public IRestResponse weatherResponse;
         
 
         public WeatherApiService()
         {
-            weatherApiDto.DeserializeWeather(weatherApiCall.Response.Content);
+            weatherApiDto.DeserializeWeather(weatherApiCall.WeatherApiRequest());
+            weatherResponse = weatherApiCall.Response;
             WeatherApiJObject = JObject.Parse(weatherApiCall.Response.Content);
         }
     }
