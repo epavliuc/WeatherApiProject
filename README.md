@@ -13,6 +13,21 @@ Nr of Tests: 22
  NUnitTestAdapter
  Newtonsoft.Json
 ```
+## Code Explanation
+This project has a clear built structure with the use of folders, depending on it's purpose, code can be found in it's respective folder/area.
+
+1. WeatherApi
+   - Data_Handling
+   - HTTP_Management
+2. WeatherApiTests
+
+Within Data_Handling you will find all he code relating to handling the data received as the API response(JSON string).
+
+Within HTTP_Management you will find all the code relating to the client,request and response relating to the API.
+
+Within WeatherApiTests we have all the built Unit Tests relating to the project.
+
+
 ## Code Preview
 Preview of pivotal pieces of code
 
@@ -34,7 +49,7 @@ Preview of pivotal pieces of code
             weatherApiModel = JsonConvert.DeserializeObject<WeatherApiModel>(WeatherApiResponse);
         }
 ````
-## Api JSON example
+## API JSON response example
 ```JSON
 {
     "coord": {
