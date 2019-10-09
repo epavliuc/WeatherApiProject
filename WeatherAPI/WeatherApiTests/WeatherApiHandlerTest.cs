@@ -14,15 +14,38 @@ namespace WeatherAPI.WeatherApiTests
         WeatherApiService WAS = new WeatherApiService();
 
         [Test]
-        public void ApiHandlerNullCheck()
+        public void ApiHeadersNullCheck()
         {
-            Assert.IsNotNull(WAS.weatherResponse.Headers.ToString());
+            //if header is null
+            Assert.IsNotNull(WAS.weatherResponse.Headers);
         }
 
         [Test]
         public void ApiHandlerCountCheck()
         {
-            Assert.AreEqual(9,WAS.weatherResponse.Headers.Count);
+            //if count of headers is 9
+            Assert.AreEqual(9, WAS.weatherResponse.Headers.Count);
+        }
+
+        [Test]
+        public void ApiHandlerContentTypeCheck()
+        {
+            //if the content type is as neccesary
+            Assert.AreEqual("Content-Type=application/json; charset=utf-8", WAS.weatherResponse.Headers[6].ToString());
+        }
+
+        [Test]
+        public void ApiHandlerServerCheck()
+        {
+            //if the server is as needed
+            Assert.AreEqual("Server=openresty", WAS.weatherResponse.Headers[8].ToString());
+        }
+
+        [Test]
+        public void ApiHandlerHTTPMethodsCheck()
+        {
+            //if needed methods are available
+            Assert.AreEqual("Access-Control-Allow-Methods=GET, POST", WAS.weatherResponse.Headers[4].ToString());
         }
     }
 

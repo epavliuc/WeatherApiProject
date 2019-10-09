@@ -17,6 +17,10 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
         {
             WeatherApiService WAS = new WeatherApiService();
             Console.WriteLine(WAS.weatherApiJObject.ToString());
+            for(int i=0;i< WAS.weatherResponse.Headers.Count; i++)
+            {
+                Console.WriteLine(WAS.weatherResponse.Headers[i].ToString());
+            }
             Console.WriteLine(WAS.weatherResponse.Headers.Count.ToString());
             Console.Read();
         }

@@ -91,8 +91,11 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
         [Test]
         public void ApiTimeZoneCheck()
         {
+            //if in the right timezone
             Assert.AreEqual(3600, WAS.weatherApiDto.weatherApiModel.TimeZone);
         }
+
+
 
     }
 }
