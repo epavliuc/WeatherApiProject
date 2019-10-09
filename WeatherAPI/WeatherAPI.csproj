@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="WeatherApiTests\WeatherApiHandlerTest.cs" />
-    <Compile Include="WeatherApiTests\WeatherApiTest.cs" />
+    <Compile Include="WeatherApiTests\WeatherApiContentTest.cs" />
     <Compile Include="WeatherApi\Data_Handling\WeatherApiDTO.cs" />
     <Compile Include="WeatherApi\Data_Handling\WeatherApiModel.cs" />
     <Compile Include="WeatherApi\HTTP_Management\WeatherApiCall.cs" />

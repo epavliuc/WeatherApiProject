@@ -16,7 +16,8 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
         static void Main(string[] args)
         {
             WeatherApiService WAS = new WeatherApiService();
-            Console.WriteLine(WAS.WeatherApiJObject.ToString());
+            Console.WriteLine(WAS.weatherApiJObject.ToString());
+            Console.WriteLine(WAS.weatherResponse.Headers.Count.ToString());
             Console.Read();
         }
 
@@ -29,7 +30,7 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
         //Need CallManager
         public WeatherApiCall weatherApiCall = new WeatherApiCall();
         //Need JObject
-        public JObject WeatherApiJObject;
+        public JObject weatherApiJObject;
         //Need IRestResponse
         public IRestResponse weatherResponse;
         
@@ -38,7 +39,7 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
         {
             weatherApiDto.DeserializeWeather(weatherApiCall.WeatherApiRequest());
             weatherResponse = weatherApiCall.Response;
-            WeatherApiJObject = JObject.Parse(weatherApiCall.Response.Content);
+            weatherApiJObject = JObject.Parse(weatherApiCall.Response.Content);
         }
     }
 }

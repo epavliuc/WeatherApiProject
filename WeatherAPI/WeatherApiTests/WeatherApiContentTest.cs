@@ -10,13 +10,9 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
 {
 
     [TestFixture]
-    public class WeatherApiTest
+    public class WeatherApiContentTest
     {
         WeatherApiService WAS = new WeatherApiService();
-        public WeatherApiTest()
-        {
-            
-        }
 
         [Test]
         public void ApiStatusCheck()
@@ -76,6 +72,26 @@ namespace WeatherAPI.WeatherApi.HTTP_Management
             //if humidity is between normal values
             Assert.Greater(WAS.weatherApiDto.weatherApiModel.Main.Humidity, 50);
             Assert.Less(WAS.weatherApiDto.weatherApiModel.Main.Humidity, 85);
+        }
+
+        [Test]
+        public void ApiGaleWindsCheck()
+        {
+            //if wind are Strong gale worthy
+            Assert.Less(WAS.weatherApiDto.weatherApiModel.Wind.Speed, 23.5);
+        }
+
+        [Test]
+        public void ApiCloudyCheck()
+        {
+            //if its cloudy in london
+            Assert.Greater(WAS.weatherApiDto.weatherApiModel.Clouds.All, 0);
+        }
+
+        [Test]
+        public void ApiTimeZoneCheck()
+        {
+            Assert.AreEqual(3600, WAS.weatherApiDto.weatherApiModel.TimeZone);
         }
 
     }
