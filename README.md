@@ -1,6 +1,16 @@
 # WeatherApiProject
 Within the project, the aim was to establish connection with the [OpenWeatherApi](https://openweathermap.org/current), to receive a response and create tests which check and validate the information received.
 
+## Table of contents
+1. [Premise of Tests](#premise-of-tests)
+2. [Instructions to run tests](#instructions-to-run-tests)
+3. [NuGet Packages used](#nuget-packages-used)
+4. [Code Explanation](#code-explanation)
+5. [Code Preview](#code-preview)
+6. [API JSON response example](#api-json-response-example)
+7. [API Parameters](#api-parameters)
+
+
 ## Premise of Tests
 The aim of the tests were not only to test both the content received but also other things such as headers. For example, with the content there are tests designated to checking if we are receiving information based on the right location and with the headers, if we are receiving the right Content Type.
 
